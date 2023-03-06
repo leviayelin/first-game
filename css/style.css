@@ -1,0 +1,160 @@
+:root{
+	--background-game:lightblue;
+	--background-mountain:green;
+	--background-cloud:white;
+}
+
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	min-height:100vh;
+}
+
+/*Global*/
+.container{
+	width:100%;
+	overflow:hidden;
+	margin:auto;
+}
+
+.flex{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	height:100vh;
+}
+
+/*game canvas*/
+#game{
+	width:500px;
+	height:200px;
+	background:var(--background-game);
+	border:1px solid black;
+	overflow:hidden;
+	position:relative;
+	z-index:1;
+}
+
+/*character properties*/
+#character{
+	width:20px;
+	height:50px;
+	background:red;
+	position:relative;
+	top:150px;
+	left:230px;
+}
+/*
+* - class jump animation 
+    that will be used in the 
+    js part 
+*/
+.animate{
+	animation:jump 500ms;
+}
+
+/*area elements*/
+#block{
+	width:20px;
+	height:20px;
+	background:blue;
+	position:relative;
+	top:130px;
+	left:480px;
+	animation:block 2s infinite linear;
+}
+
+/*game background*/
+.mountain{
+	display:inline-block;
+	width:35px;
+	height:160px;
+	background:var(--background-mountain);
+	overflow:hidden;
+	position:absolute;
+	top:40px;
+	animation:backgroundMove 8s infinite linear;
+}
+
+.mountain2{
+	display:inline-block;
+	width:35px;
+	height:100px;
+	background:var(--background-mountain);
+	overflow:hidden;
+	position:absolute;
+	top:100px;
+	left:60px;
+	animation:backgroundMove2 6s infinite linear;
+}
+
+.cloud-big{
+	width:60px;
+	height:25px;
+	border-radius:50%;
+	background:var(--background-cloud);
+	border:2px solid blue;
+	position:absolute;
+	top:20px;
+	animation:backgroundMove 30s infinite linear;
+}
+
+.cloud-small{
+	width:40px;
+	height:20px;
+	border-radius:50%;
+	background:var(--background-cloud);
+	border:2px solid blue;
+	position:absolute;
+	left:40px;
+	top:10px;
+	animation:backgroundMove2 28s infinite linear;
+
+}
+
+/*animation properties*/
+/*
+* -keyframes for the jump animation 
+*/
+@keyframes jump{
+	0%{top:150px;}
+	30%{top:100px;}
+	70%{top:100px;}
+	100%{top:150px;}
+}
+
+/*
+* - keyframes for the block animation 
+    keep it repeated motion moving forward
+*/
+@keyframes block{
+	0%{left:480px;}
+	100%{left:-40px;}
+}
+
+/*
+* - keyframes for the background animation 
+    keep it repeated motion moving forward
+*/
+@keyframes backgroundMove{
+	0%{left:500px;}
+	100%{left:-50px;}
+}
+
+@keyframes backgroundMove2{
+	0%{left:560px;}
+	100%{left:-60px;}
+}
+
+@keyframes backgroundMove{
+	0%{left:500px;}
+	100%{left:-50px;}
+}
+
+@keyframes backgroundMove2{
+	0%{left:560px;}
+	100%{left:-60px;}
+}
